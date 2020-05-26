@@ -1,1 +1,20 @@
-<h2>Cocktail listings</h2>
+<div class="container">
+  <h2>All our Cocktails (<%= Cocktail.all.count%>)</h2>
+  <div class="cards">
+    <% @cocktails.each do |cocktail| %>
+      <div class="card">
+        <div class="card-img" style="background-image: url('<%= cocktail.picture_url %>');"></div>
+        <div class="card-info">
+          <div class="info-title"><h4><%= cocktail.name %></h4></div>
+        </div>
+        <div class="card-actions">
+          <%= link_to 'More info', cocktail_path(cocktail) %>
+          <%= link_to 'Edit', edit_cocktail_path(cocktail) %>
+          <%= link_to 'Remove', cocktail_path(cocktail),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

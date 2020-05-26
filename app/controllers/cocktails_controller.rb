@@ -11,7 +11,8 @@ class CocktailsController < ApplicationController
   end
 
   def new
-    @cocktail = Cocktail.new
+    @cocktail = Cocktail.new(cocktail_params)
+    @dose = Dose.new
   end
 
   def create
@@ -24,9 +25,11 @@ class CocktailsController < ApplicationController
   end
 
   def show
+    @dose = Dose.new
   end
 
   def edit
+    @dose = Dose.new
   end
 
   def update
@@ -39,7 +42,7 @@ class CocktailsController < ApplicationController
 
   def destroy
     @cocktail.destroy
-    redirect_to cocktails_path
+    redirect_to root_path
   end
 
   private
@@ -49,6 +52,6 @@ class CocktailsController < ApplicationController
   end
 
   def cocktail_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :picture_url)
   end
 end

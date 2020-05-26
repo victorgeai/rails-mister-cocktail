@@ -11,3 +11,60 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.container {
+  width:100%;
+  padding: 1em 5em 2em;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.card {
+  width: 300px;
+  position: relative;
+  margin: .5rem 15px 1rem 0;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+}
+
+.card-img {
+  height:150px;
+  background-size:cover;
+}
+
+.form {
+  width: 500px;
+  position: relative;
+  margin: 0 auto;
+  padding:20px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+}
+
+.form-fields {
+  margin:10px 50px 10px;
+}
+
+.margin-top-negative {
+  margin-top: -75px;
+}
+
+.cocktail-show-card {
+  background: #F8F9FA;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  border-radius: 3px;
+}
+
+.map {
+  height: 350px;
+  background-position: center;
+  background-size: cover;
+}

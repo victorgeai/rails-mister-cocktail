@@ -1,1 +1,44 @@
-<h2>Cocktail name</h2>
+<div class="map" style="background-image: url('<%= @cocktail.picture_url %>')">
+</div>
+
+<div class="container margin-top-negative">
+  <div class="row">
+    <div class="col-8">
+      <div class="cocktail-show-card">
+        <h1><%= @cocktail.name %></h1>
+      </div>
+      <div class="cocktail-show-card">
+        <h3>A bit more about this cocktail...</h3>
+        <p>Lorem ipsum</p>
+      </div>
+      <%= link_to 'Edit cocktail', edit_cocktail_path(@cocktail), class:"btn btn-outline-success" %>
+      <%= link_to 'Delete cocktail', cocktail_path(@cocktail),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' },
+                  class:"btn btn-outline-danger" %>
+      <%= link_to 'Back to cocktails', root_path, class:"btn btn-outline-dark" %>
+    </div>
+
+    <div class="col-4">
+      <div class="cocktail-show-card">
+        <h5>Ingredients</h5>
+        <ul>
+          <% @cocktail.doses.each do |dose| %>
+            <li><%= dose.ingredient_id %> - <%= dose.description %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="cocktail-show-card">
+        <div class="flex-align">
+          <h6 class="no-mb">Share</h6>
+          <div class="flex">
+            <i class="fab fa-facebook-square fa-2x"></i>
+            <i class="fab fa-twitter-square fa-2x"></i>
+            <i class="fab fa-pinterest-square fa-2x"></i>
+            <i class="fa fa-envelope-square fa-2x"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
