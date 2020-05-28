@@ -1,5 +1,8 @@
-<div class="map" style="background-image: url('<%= cl_image_tag @cocktail.photo.key, height: 300, crop: :fill %>')">
-</div>
+<% if @cocktail.photo.attached? %>
+  <div class="map" style="background-image: url('<%= cl_image_path @cocktail.photo.key %>')"></div>
+<% else %>
+  <div class="map"></div>
+<% end %>
 
 <div class="container margin-top-negative">
   <div class="row">
@@ -21,16 +24,16 @@
 
     <div class="col-4">
       <div class="cocktail-show-card">
-        <h5>Ingredients</h5>
+        <strong>Ingredients</strong>
         <ul>
           <% @cocktail.doses.each do |dose| %>
-            <li><%= dose.ingredient_id %> - <%= dose.description %></li>
+            <li><%= dose.ingredient.name %> - <%= dose.description %></li>
           <% end %>
         </ul>
       </div>
       <div class="cocktail-show-card">
         <div class="flex-align">
-          <h6 class="no-mb">Share</h6>
+          <strong class="no-mb">Share</strong>
           <div class="flex">
             <i class="fab fa-facebook-square fa-2x"></i>
             <i class="fab fa-twitter-square fa-2x"></i>

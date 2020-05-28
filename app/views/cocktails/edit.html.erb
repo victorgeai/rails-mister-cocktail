@@ -1,7 +1,45 @@
 <div class="container">
-  <div class="form">
-    <h1>Edit <%= @cocktail.name %></h1>
-    <%= render 'form' %>
-    <%= link_to 'Back to listing', root_path %>
+  <div class="row">
+    <div class="form col-8">
+      <h1>Edit <%= @cocktail.name %></h1>
+      <div class="form-fields">
+      <%= simple_form_for @cocktail do |f| %>
+
+        <% if @cocktail.errors.any? %>
+          <div id="error_explanation">
+            <h2>
+              <%= pluralize(@cocktail.errors.count, "error") %> prohibited
+              this cocktail from being saved:
+            </h2>
+            <ul>
+              <% @cocktail.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+
+        <p>
+          <%= f.input :name %>
+          <%= f.input :photo, as: :file %>
+          <p>Doses</p>
+          <% @cocktail.doses.each do |dose| %>
+            <li><%= dose.ingredient.name %> - <%= dose.description %> <%= link_to 'Remove', dose_path(dose),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %></li>
+          <% end %>
+          <%= f.submit "Edit cocktail", class:"btn btn-primary my-3"%>
+        </p>
+
+      <% end %>
+
+      </div>
+      <%= link_to 'Back to listing', root_path %>
+    </div>
+    <div class="bg-light p-4 col-4">
+      <strong>Add a dose</strong>
+      <%= render 'doses/new', cocktail: @cocktail, dose: @dose %>
+    </div>
   </div>
 </div>

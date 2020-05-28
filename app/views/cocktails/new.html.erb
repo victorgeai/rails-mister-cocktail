@@ -1,30 +1,30 @@
 <div class="container">
-  <div class="form">
-    <h1>New cocktail</h1>
-    <div class="form-fields">
-    <%= simple_form_for @cocktail do |f| %>
+  <div class="row">
+    <div class="form">
+      <h1>New cocktail</h1>
+      <div class="form-fields">
+        <%= simple_form_for @cocktail do |f| %>
 
-      <% if @cocktail.errors.any? %>
-        <div id="error_explanation">
-          <h2>
-            <%= pluralize(@cocktail.errors.count, "error") %> prohibited
-            this cocktail from being saved:
-          </h2>
-          <ul>
-            <% @cocktail.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
+          <% if @cocktail.errors.any? %>
+            <div id="error_explanation">
+              <h2>
+                <%= pluralize(@cocktail.errors.count, "error") %> prohibited
+                this cocktail from being saved:
+              </h2>
+              <ul>
+                <% @cocktail.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
 
 
-      <p>
-        <%= f.input :name %>
-        <%= f.input :picture_url %>
-        <%= f.input :photo, as: :file %>
-        <%= f.submit "Create/Edit cocktail", class:"btn btn-primary my-3"%>
-      </p>
+          <p>
+            <%= f.input :name %>
+            <%= f.input :photo, as: :file %>
+            <%= f.submit "Create cocktail", class:"btn btn-primary my-3"%>
+          </p>
 
     <% end %>
 

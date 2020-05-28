@@ -17,6 +17,13 @@ Cocktail.destroy_all if Rails.env.development?
 Ingredient.create(name: "lemon")
 Ingredient.create(name: "ice")
 Ingredient.create(name: "mint leaves")
+Ingredient.create(name: "Tabasco")
+Ingredient.create(name: "Gin")
+Ingredient.create(name: "Bourbon")
+Ingredient.create(name: "Calva")
+Ingredient.create(name: "Benedictine")
+Ingredient.create(name: "Bourbon")
+
 
 Cocktail.create(name: "Daiqiri")
 Cocktail.create(name: "Bloody Mary")
